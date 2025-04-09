@@ -1,0 +1,205 @@
+/* Faire en sorte que le body prenne toute la hauteur */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  position: relative;
+}
+
+/* Structure principale de la page */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Vidéo en fond */
+#video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -2;
+  object-fit: cover;
+}
+
+/* Image superposée sur la vidéo mais sous le reste */
+#image-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+#image-overlay img {
+  width: 600px;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Couleur de fond semi-transparente de secours */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -3;
+}
+
+/* Conteneur principal */
+main {
+  flex: 1;
+  text-align: center;
+  padding: 50px;
+}
+
+/* Styles H1 avec tooltip */
+h1.tooltip {
+  font-size: 48px;
+  color: yellow;
+  position: relative;
+  cursor: pointer;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px;
+  position: absolute;
+  z-index: 2;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Styles H2 et H3 */
+h2 {
+  font-size: 20px;
+  color: yellow;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Header avec 3 colonnes de couleur */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  color: white;
+  position: relative;
+}
+
+/* Les 3 couleurs en colonne */
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 33.33%;
+  height: 100%;
+  background-color: green;
+  z-index: -1;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 33.33%;
+  width: 33.33%;
+  height: 100%;
+  background-color: red;
+  z-index: -1;
+}
+
+header nav::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 66.66%;
+  width: 33.34%;
+  height: 100%;
+  background-color: yellow;
+  z-index: -1;
+}
+
+/* Liens NavBar */
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+/* Modifier la couleur au survol des liens */
+nav a:hover {
+  color: greenyellow;
+}
+
+/* Style spécifique pour les liens "Nos actions", "Nous soutenir" et "Nos combats" */
+.lien-vert {
+  color: green; /* Couleur verte spécifique */
+}
+
+.lien-vert:hover {
+  color: limegreen; /* Couleur au survol */
+}
+
+/* Footer */
+footer {
+  background-color: maroon;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+/* Footer colonnes */
+.footer-left,
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.footer-left p:hover,
+.footer-right p:hover {
+  color: greenyellow;
+  cursor: pointer;
+}
+
+/* Icônes réseaux sociaux */
+.footer-right img {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  transition: transform 0.3s;
+}
+
+.footer-right img:hover {
+  transform: scale(1.1);
+}
