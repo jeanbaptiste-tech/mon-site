@@ -10,7 +10,7 @@
   <body>
     <!-- Vidéo de fond qui occupe tout l'écran -->
     <video autoplay muted loop id="video-background">
-      <source src="vidoes/132570-754103118_small.mp4" type="video/mp4" />
+      <source src="videos/132570-754103118_small.mp4" type="video/mp4" />
       <!-- Message si la vidéo ne se charge pas -->
       Votre navigateur ne supporte pas la vidéo.
     </video>
@@ -21,44 +21,42 @@
     </div>
 
     <header>
-      <!-- Titre avec un effet Tooltip au survol -->
-      <h1 class="tooltip">
+      <h1
+        class="tooltip"
+        title="Association pour un meilleur avenir des Enfants Défavorisés du Cameroun"
+      >
         AMAEDC
-        <span class="tooltiptext">
-          Association à But Non Lucratif qui œuvre pour les enfants défavorisés
-          du Cameroun
-        </span>
       </h1>
 
       <!-- Menu de navigation -->
       <nav>
         <a href="index.html">Accueil</a>
-        <a href="#">Nous connaitre</a>
-        <a href="#">Nos actions</a>
-        <a href="#">Nous soutenir</a>
-        <a href="#">Nos combats</a>
+        <a href="qui sommes nous.html#Nos-combats">qui sommes nous</a>
+        <a href="nous-connaitre.html">Nous connaitre</a>
+        <a href="#nos actions">Nos actions</a>
+        <a href="#Nous soutenir">Nous soutenir</a>
       </nav>
+
+      <!-- Menu Burger -->
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
     </header>
 
     <main>
-      <!-- Slogan principal -->
-      <h2>par ici</h2>
+      <div class="button-overlay">
+        <a
+          href="presentationG.html"
+          class="animated-button"
+          aria-label="Découvrir AMAEDC"
+        >
+          par ici
+        </a>
+      </div>
     </main>
 
-    <footer>
-      <!-- Pied de page gauche -->
-      <div class="footer-left">
-        <p>Mentions légales</p>
-        <p>Politique de confidentialité</p>
-        <p>Plan du site</p>
-      </div>
-
-      <!-- Pied de page droit -->
-      <div class="footer-right">
-        <p>Facebook</p>
-        <p>Instagram</p>
-        <p>Contact</p>
-      </div>
-    </footer>
+    <script src="script.js" defer></script>
   </body>
 </html>
