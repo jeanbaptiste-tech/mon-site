@@ -30,7 +30,34 @@ document.addEventListener("DOMContentLoaded", function () {
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("nav-menu");
 
-  hamburger.addEventListener("click", () => {
+  /*  hamburger.addEventListener("click", () => {
     navMenu.classList.toggle("active");
-  });
+  }); */
 });
+
+/* Carousel */
+
+const track = document.getElementById("carousel-track");
+const slides = document.querySelectorAll(".carousel-slide");
+const carousel = document.getElementById("carousel");
+
+let indexCarroussel = 0;
+const intervalTime = 3000;
+let interval;
+
+function startCarousel() {
+  interval = setInterval(() => {
+    indexCarroussel = (indexCarroussel + 1) % slides.length;
+    let translateX = -indexCarroussel * 100;
+    track.style.transform = `translateX(${translateX}%)`;
+  }, intervalTime);
+}
+
+function stopCarousel() {
+  clearInterval(interval);
+}
+
+carousel.addEventListener("mouseenter", stopCarousel);
+carousel.addEventListener("mouseleave", startCarousel);
+
+startCarousel();

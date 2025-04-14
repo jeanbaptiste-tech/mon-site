@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connexion</title>
+    <link rel="stylesheet" href="formulaireC.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <!-- Connexion -->
+      <div class="form-box">
+        <h2>Connexion</h2>
+        <form id="login-form">
+          <input type="email" placeholder="Adresse e-mail" required />
+          <input
+            type="password"
+            placeholder="Mot de passe"
+            required
+            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\W_]).{8,}"
+            title="Le mot de passe doit contenir au moins 8 caractères, dont une majuscule, une minuscule, un chiffre et un caractère spécial."
+          />
+
+          <button type="submit">Se connecter</button>
+          <div id="loader" class="loader hidden"></div>
+          <p id="success-message" class="success hidden">
+            Connexion réussie ✅
+          </p>
+        </form>
+      </div>
+
+      <!-- Inscription -->
+      <div class="form-box">
+        <h2>Inscription</h2>
+        <form id="register-form">
+          <input type="text" placeholder="Nom" required />
+          <input type="text" placeholder="Prénom" required />
+          <input type="number" placeholder="Âge" min="1" max="120" required />
+          <select required>
+            <option value="">Sexe</option>
+            <option value="M">Masculin</option>
+            <option value="F">Féminin</option>
+          </select>
+          <input type="text" placeholder="Pays" required />
+          <input type="text" placeholder="Ville" required />
+          <input type="email" placeholder="Email" required />
+          <input
+            type="password"
+            placeholder="Mot de passe"
+            required
+            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\W_]).{8,}"
+            title="Le mot de passe doit contenir au moins 8 caractères, dont une majuscule, une minuscule, un chiffre et un caractère spécial."
+          />
+          <button type="submit">S'inscrire</button>
+          <p id="register-success" class="success hidden">
+            Inscription réussie 🎉
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <script src="formulaireC.js"></script>
+  </body>
+</html>
