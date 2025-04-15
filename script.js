@@ -36,28 +36,31 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* Carousel */
-
-const track = document.getElementById("carousel-track");
-const slides = document.querySelectorAll(".carousel-slide");
-const carousel = document.getElementById("carousel");
-
-let indexCarroussel = 0;
-const intervalTime = 3000;
 let interval;
+document.addEventListener("DOMContentLoaded", function () {
+  const carousel = document.getElementById("carousel");
+  const track = document.getElementById("carousel-track");
+  const slides = document.querySelectorAll(".carousel-slide");
 
-function startCarousel() {
-  interval = setInterval(() => {
-    indexCarroussel = (indexCarroussel + 1) % slides.length;
-    let translateX = -indexCarroussel * 100;
-    track.style.transform = `translateX(${translateX}%)`;
-  }, intervalTime);
-}
+  let indexCarroussel = 0;
+  const intervalTime = 3000;
+  let interval;
 
-function stopCarousel() {
-  clearInterval(interval);
-}
+  function startCarousel() {
+    interval = setInterval(() => {
+      indexCarroussel = (indexCarroussel + 1) % slides.length;
+      let translateX = -indexCarroussel * 100;
+      track.style.transform = `translateX(${translateX}%)`;
+    }, intervalTime);
+  }
 
-carousel.addEventListener("mouseenter", stopCarousel);
-carousel.addEventListener("mouseleave", startCarousel);
+  function stopCarousel() {
+    clearInterval(interval);
+  }
 
-startCarousel();
+  if (carousel && track && slides.length > 0) {
+    carousel.addEventListener("mouseenter", stopCarousel);
+    carousel.addEventListener("mouseleave", startCarousel);
+    startCarousel();
+  }
+});
